@@ -1,0 +1,6 @@
+- hosts: local
+  become: yes
+  vars:
+    using_bg_artifactory: true
+  roles:
+    - hyperscanner

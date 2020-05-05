@@ -1,0 +1,34 @@
+---
+# tasks file for hyperscanner
+#
+#
+- name: Run apt upgrade to patch the OS
+  shell: apt update -y && apt upgrade -y
+
+- name: Copy netplan configuration files
+  copy:
+      src: files/01-netcfg.yaml
+      dest: "/etc/netplan/01-netcfg.yaml"
+      owner: root
+      group: root
+      mode: 0644
+
+- name : run a netplan apply
+  shell: netplan apply
+
+- name: Copy grub files to make changes for USB cameras
+  copy:
+      src: files/grub
+      dest: "/etc/default/grub"
+      owner: root
+      group: root
+      mode: 0644
+
+- name: Update the grub config
+  shell: update-grub
+
+- name: Install bgtools and create developers work space
+  shell: |
+    bash -c "$(curl -sSL https://artifactory.berkshiregrey.com/artifactory/generic-local/bg_tools/setup-developer/linux/setup-developer)"
+    bgtool deps install devbox
+    bgtool ws create fuji-smalls -w ~/devel/ros_ws
