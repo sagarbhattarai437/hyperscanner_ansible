@@ -37,7 +37,7 @@
 
 - name: copy the bgtools install script
   copy:
-      src: files/bgtools_install.sh
+      src: files/install_bgtools.sh
       dest: "/tmp/bgtools_install.sh"
       owner: robot
       group: robot
