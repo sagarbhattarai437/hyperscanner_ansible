@@ -12,8 +12,8 @@
       mode: 0644
       backup: yes
 
-      #- name : run a netplan apply
-      # shell: netplan apply
+- name : run a netplan apply
+  shell: netplan apply
 
 - name: Copy grub files to make changes for USB cameras
   copy:
@@ -27,7 +27,7 @@
 - name: Copy the swiftdecoder lib files
   copy:
      src: files/5.2.17
-     dest: "/tmp/5.2.17"
+     dest: "/home/robot/5.2.17"
      owner: root
      group: root
      mode: 755
@@ -38,7 +38,7 @@
 - name: copy the bgtools install script
   copy:
       src: files/install_bgtools.sh
-      dest: "/tmp/bgtools_install.sh"
+      dest: "/home/robot/bgtools_install.sh"
       owner: robot
       group: robot
       mode: 755
