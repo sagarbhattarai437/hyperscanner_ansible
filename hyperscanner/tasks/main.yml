@@ -2,8 +2,6 @@
 # tasks file for hyperscanner
 #
 #
-- name: Run apt upgrade to patch the OS
-  shell: apt update -y && apt upgrade -y
 
 - name: Copy netplan configuration files
   copy:
@@ -12,9 +10,10 @@
       owner: root
       group: root
       mode: 0644
+      backup: yes
 
-- name : run a netplan apply
-  shell: netplan apply
+      #- name : run a netplan apply
+      # shell: netplan apply
 
 - name: Copy grub files to make changes for USB cameras
   copy:
@@ -23,11 +22,12 @@
       owner: root
       group: root
       mode: 0644
+      backup: yes
 
 - name: Copy the swiftdecoder lib files
   copy:
      src: files/5.2.17
-     dest: "/tmp/"
+     dest: "/tmp/5.2.17"
      owner: root
      group: root
      mode: 755
@@ -35,8 +35,10 @@
 - name: Update the grub config
   shell: update-grub
 
-- name: Install bgtools and create developers work space
-  shell: |
-    bash -c "$(curl -sSL https://artifactory.berkshiregrey.com/artifactory/generic-local/bg_tools/setup-developer/linux/setup-developer)"
-    bgtool deps install devbox
-    bgtool ws create fuji-smalls -w ~/devel/ros_ws
+- name: copy the bgtools install script
+  copy:
+      src: files/bgtools_install.sh
+      dest: "/tmp/bgtools_install.sh"
+      owner: robot
+      group: robot
+      mode: 755

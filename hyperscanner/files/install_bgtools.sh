@@ -5,6 +5,8 @@ echo "Installing devbox"
 bgtool deps install devbox
 echo "creating workspace"
 bgtool ws create fuji-smalls -w ~/devel/ros_ws
+echo "copy swiftdecoder files"
+cp -pirv /tmp/5.2.17 /usr/local/swiftdecoder/
 echo "build source codes"
 cd ~/devel/ros_ws
 catkin build hyper_scanner
