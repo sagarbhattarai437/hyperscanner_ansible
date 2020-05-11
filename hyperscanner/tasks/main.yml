@@ -12,9 +12,6 @@
       mode: 0644
       backup: yes
 
-- name : run a netplan apply
-  shell: netplan apply
-
 - name: Copy grub files to make changes for USB cameras
   copy:
       src: files/grub
@@ -30,7 +27,7 @@
      dest: "/home/robot/5.2.17"
      owner: root
      group: root
-     mode: 755
+     mode: 644
 
 - name: Update the grub config
   shell: update-grub
