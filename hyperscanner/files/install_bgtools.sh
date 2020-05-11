@@ -81,7 +81,8 @@ echo "copy swiftdecoder files"
 echo "copy swiftdecoder files"
 echo "copy swiftdecoder files"
 echo "copy swiftdecoder files"
-sudo cp -pirv /home/robot/5.2.17/5.2.17 /usr/local/swiftdecoder/
+sudo rsync -av /home/robot/5.2.17/5.2.17 /usr/local/swiftdecoder/
+sudo chmod -R 644 /usr/local/swiftdecoder/
 echo "done"
 echo "done"
 echo "done"
