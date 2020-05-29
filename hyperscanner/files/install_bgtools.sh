@@ -8,7 +8,7 @@ echo "run apt update and apt upgrade"
 echo "run apt update and apt upgrade"
 echo "run apt update and apt upgrade"
 echo "run apt update and apt upgrade"
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y &&
 echo "step 1 done"
 echo "step 1 done"
 echo "step 1 done"
@@ -26,7 +26,7 @@ echo "Installing bgtools"
 echo "Installing bgtools"
 echo "Installing bgtools"
 echo "Installing bgtools"
-bash -c "$(curl -sSL https://artifactory.berkshiregrey.com/artifactory/generic-local/bg_tools/setup-developer/linux/setup-developer)"
+bash -c "$(curl -sSL https://artifactory.berkshiregrey.com/artifactory/generic-local/bg_tools/setup-developer/linux/setup-developer)" &&
 echo "bgtools installed"
 echo "bgtools installed"
 echo "bgtools installed"
@@ -49,7 +49,7 @@ echo "Installing devbox"
 echo "Installing devbox"
 echo "Installing devbox"
 echo "Installing devbox"
-bgtool deps install devbox
+bgtool deps install devbox &&
 echo "devbox installed"
 echo "devbox installed"
 echo "devbox installed"
@@ -73,7 +73,7 @@ echo "creating workspace"
 echo "creating workspace"
 echo "creating workspace"
 echo "creating workspace"
-bgtool ws create fuji-smalls -w ~/devel/ros_ws
+bgtool ws create fuji-smalls -w ~/devel/ros_ws &&
 echo "copy swiftdecoder files"
 echo "copy swiftdecoder files"
 echo "copy swiftdecoder files"
@@ -81,8 +81,8 @@ echo "copy swiftdecoder files"
 echo "copy swiftdecoder files"
 echo "copy swiftdecoder files"
 echo "copy swiftdecoder files"
-sudo rsync -av /home/robot/5.2.17/5.2.17 /usr/local/swiftdecoder/
-sudo chmod -R 755 /usr/local/swiftdecoder/
+sudo rsync -av /home/robot/5.2.17/5.2.17 /usr/local/swiftdecoder/ &&
+sudo chmod -R 755 /usr/local/swiftdecoder/ &&
 echo "done"
 echo "done"
 echo "done"
