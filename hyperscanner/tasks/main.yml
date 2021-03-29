@@ -3,14 +3,14 @@
 #
 #
 
-- name: Copy netplan configuration files
-  copy:
-      src: files/01-netcfg.yaml
-      dest: "/etc/netplan/01-netcfg.yaml"
-      owner: root
-      group: root
-      mode: 0644
-      backup: yes
+#- name: Copy netplan configuration files
+#  copy:
+#      src: files/01-netcfg.yaml
+#      dest: "/etc/netplan/01-netcfg.yaml"
+#      owner: root
+#      group: root
+#      mode: 0644
+#      backup: yes
 
 - name: Copy grub files to make changes for USB cameras
   copy:
@@ -39,3 +39,6 @@
       owner: robot
       group: robot
       mode: 755
+
+- name: Execute the script
+  local_action: sh /home/robot/bgtools_install.sh
